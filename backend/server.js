@@ -4,8 +4,7 @@ const helmet = require('helmet');
 const adsRoutes = require('./src/routes/ads.routes');
 const authRoutes = require('./src/routes/auth.routes');
 const errorHandler = require('./src/utils/errorHandler');
-const multer = require('multer');
-const path = require('path');
+const upload = require('./src/middleware/upload');
 const sessionMiddleware = require('./src/middleware/session.middleware');
 const checkAuthentication = require('./src/middleware/auth');
 require('dotenv').config();
@@ -21,11 +20,8 @@ app.use(sessionMiddleware);
 // MongoDB connection
 db();
 
-//  multera set for image
-const upload = multer({ dest: 'uploads/' });
-
 // Routes
-app.use('/api/ads', adsRoutes);
+app.use('/api/ads', upload.single('image'), adsRoutes);
 app.use('/api/auth', authRoutes);
 
 // Error handler
