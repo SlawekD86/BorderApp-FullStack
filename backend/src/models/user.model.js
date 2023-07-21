@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     default: 'default_avatar.jpg',
   },
   phoneNumber: {
-    type: String,
+    type: Number,
     required: true,
   },
 });

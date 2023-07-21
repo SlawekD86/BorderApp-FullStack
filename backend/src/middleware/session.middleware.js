@@ -1,9 +1,9 @@
 const session = require('express-session');
 
 const sessionMiddleware = session({
-  secret: 'super_secret_key', // Sekret używany do podpisywania ciasteczek sesji
-  resave: false, // Nie zapisujemy sesji na nowo, jeśli się nie zmieniła
-  saveUninitialized: true, // Zapisujemy sesję nawet dla niezalogowanych użytkowników
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
   cookie: {
     maxAge: 3600000, // Czas wygaśnięcia sesji w milisekundach (1 godzina)
     secure: true, // Wymagaj protokołu HTTPS do przesyłania ciasteczek

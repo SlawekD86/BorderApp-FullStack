@@ -1,0 +1,14 @@
+.collection-ads {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  
+    .ad-item {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+  }
+  

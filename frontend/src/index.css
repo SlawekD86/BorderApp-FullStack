@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .card {
+    width: 300px;
+    margin: 10px;
+  }
+  
