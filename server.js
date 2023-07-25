@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const connectToDB = require('./db');
 const helmet = require('helmet');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session); 
 
 require('dotenv').config();
 
@@ -33,7 +32,6 @@ connectToDB().then(() => {
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }), // Ustawiamy magazyn sesji MongoDB
     cookie: {
       secure: process.env.NODE_ENV === 'production',
     }
